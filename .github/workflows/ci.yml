@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  compose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install the full train from the constraints file
+        run: |
+          pip install -c 2026.07.txt \
+            pico-ioc pico-boot pico-fastapi pico-sqlalchemy pico-pydantic \
+            pico-celery pico-caching pico-resilience pico-actuator \
+            "pico-otel[fastapi,prometheus]" pico-httpx pico-scheduling \
+            pico-data-redis pico-rabbitmq pico-kafka pico-client-auth \
+            pico-server-auth pico-testing aiosqlite httpx
+      - run: python compose_check.py
