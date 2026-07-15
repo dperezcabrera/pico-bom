@@ -1,6 +1,6 @@
 # pico release train 2026.07 - versions validated TOGETHER
 # Usage: pip install -c https://raw.githubusercontent.com/dperezcabrera/pico-bom/main/2026.07.txt pico-boot pico-fastapi ...
-pico-ioc==2.3.3
+pico-ioc==2.3.4
 pico-boot==0.2.0
 pico-fastapi==0.3.1
 pico-sqlalchemy==0.5.1
