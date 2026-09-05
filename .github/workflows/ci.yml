@@ -15,7 +15,9 @@ jobs:
           python-version: "3.12"
       - name: Install the full train from the constraints file
         run: |
-          pip install -c 2026.07.txt \
+          TRAIN=$(ls 20*.txt | sort | tail -1)
+          echo "validating train: $TRAIN"
+          pip install -c "$TRAIN" \
             pico-ioc pico-boot pico-fastapi pico-sqlalchemy pico-pydantic \
             pico-celery pico-caching pico-resilience pico-actuator \
             "pico-otel[fastapi,prometheus]" pico-httpx pico-scheduling \
