@@ -17,10 +17,7 @@ jobs:
         run: |
           TRAIN=$(ls 20*.txt | sort | tail -1)
           echo "validating train: $TRAIN"
-          pip install -c "$TRAIN" \
-            pico-ioc pico-boot pico-fastapi pico-sqlalchemy pico-pydantic \
-            pico-celery pico-caching pico-resilience pico-actuator \
-            "pico-otel[fastapi,prometheus]" pico-httpx pico-scheduling \
-            pico-data-redis pico-rabbitmq pico-kafka pico-client-auth \
-            pico-server-auth pico-testing aiosqlite httpx
+          # Every package pinned in the train gets installed: the file is the list.
+          pip install -c "$TRAIN" $(sed -n 's/==.*//p' "$TRAIN") \
+            "pico-otel[fastapi,prometheus]" aiosqlite httpx
       - run: python compose_check.py

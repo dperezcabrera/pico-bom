@@ -7,6 +7,7 @@ Run inside a venv created from the constraints file."""
 
 import asyncio
 import sys
+from importlib.metadata import distributions
 
 import httpx
 from fastapi import FastAPI
@@ -87,7 +88,8 @@ def main() -> int:
     assert jwks.status_code == 200 and jwks.json()["keys"], jwks.text
 
     container.shutdown()
-    print("BOM OK: 18 modulos instalados y compuestos, app arrancada y respondiendo")
+    installed = sorted(d.metadata["Name"] for d in distributions() if d.metadata["Name"].startswith("pico-"))
+    print(f"BOM OK: {len(installed)} modulos instalados y compuestos, app arrancada y respondiendo")
     return 0
 
 
