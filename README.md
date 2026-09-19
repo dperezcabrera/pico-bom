@@ -10,7 +10,7 @@ Pass the train as a constraints file and list only what you use:
 
 ```bash
 pip install \
-  -c https://raw.githubusercontent.com/dperezcabrera/pico-bom/main/2026.09.txt \
+  -c https://raw.githubusercontent.com/dperezcabrera/pico-bom/main/2026.10.txt \
   pico-boot pico-fastapi pico-sqlalchemy
 ```
 
@@ -20,6 +20,7 @@ Constraints do not install anything by themselves: they pin whatever you name (a
 
 | Train | Highlights |
 |---|---|
+| [2026.10](2026.10.txt) | pico-fastapi 0.4.1 (the `session` extra installs `itsdangerous` instead of `starlette-session`, which capped the whole install at `starlette<1`) |
 | [2026.09](2026.09.txt) | pico-ioc 2.5.1 (config interpolation errors no longer swallowed as an absent prefix), pico-fastapi 0.4.0 (controller discovery and request-scope cleanup off pico-ioc internals), pico-client-auth 0.7.0 (`JWKSClient` exported as a replaceable seam) |
 | [2026.07](2026.07.txt) | pico-ioc 2.3.4 (idempotent shutdown, config expand_env), pico-testing 0.2.0 fleet-wide, sqlalchemy 0.5.1 (ASGI-safe DDL hooks), PyJWT auth pair |
 
