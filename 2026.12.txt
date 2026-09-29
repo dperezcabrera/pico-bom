@@ -1,0 +1,20 @@
+# pico release train 2026.12 - versions validated TOGETHER
+# Usage: pip install -c https://raw.githubusercontent.com/dperezcabrera/pico-bom/main/2026.12.txt pico-boot pico-fastapi ...
+pico-ioc==2.5.1
+pico-boot==0.2.1
+pico-fastapi==0.4.2
+pico-sqlalchemy==0.5.3
+pico-pydantic==0.2.4
+pico-celery==0.2.4
+pico-caching==0.1.2
+pico-resilience==0.2.2
+pico-actuator==0.2.2
+pico-otel==0.1.1
+pico-httpx==0.1.1
+pico-scheduling==0.1.1
+pico-data-redis==0.1.1
+pico-rabbitmq==0.1.2
+pico-kafka==0.1.6
+pico-client-auth==0.7.1
+pico-server-auth==0.2.2
+pico-testing==0.2.0
