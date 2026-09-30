@@ -10,7 +10,7 @@ Pass the train as a constraints file and list only what you use:
 
 ```bash
 pip install \
-  -c https://raw.githubusercontent.com/dperezcabrera/pico-bom/main/2026.12.txt \
+  -c https://raw.githubusercontent.com/dperezcabrera/pico-bom/main/2026.13.txt \
   pico-boot pico-fastapi pico-sqlalchemy
 ```
 
@@ -20,6 +20,7 @@ Constraints do not install anything by themselves: they pin whatever you name (a
 
 | Train | Highlights |
 |---|---|
+| [2026.13](2026.13.txt) | pico-fastapi 0.4.3: FastAPI >= 0.142 ships built-in OpenTelemetry; `fastapi.telemetry` now defaults to `{"auto_configure": False}` so FastAPI never adds a second exporter next to pico-otel's |
 | [2026.12](2026.12.txt) | Dependency floors that work: 16 patch releases raise every declared floor to what the module's suite proves (e.g. pico-ioc >= 2.3.3 fleet-wide, SQLAlchemy >= 2.0.46, celery >= 5.5), and every module's CI now runs the suite with its floors pinned |
 | [2026.11](2026.11.txt) | pico-sqlalchemy 0.5.2 (depends on `sqlalchemy[asyncio]`: SQLAlchemy 2.1 no longer installs `greenlet` implicitly and 0.5.1 failed at import on fresh installs) |
 | [2026.10](2026.10.txt) | pico-fastapi 0.4.1 (the `session` extra installs `itsdangerous` instead of `starlette-session`, which capped the whole install at `starlette<1`) |
